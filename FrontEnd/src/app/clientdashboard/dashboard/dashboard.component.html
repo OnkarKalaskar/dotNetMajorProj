@@ -1,0 +1,136 @@
+<!-- Movie Slider -->
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header >
+        <mat-panel-title>
+          <h1 style="margin-top: 1%;">Movies</h1>
+        </mat-panel-title>
+        <mat-panel-description *ngIf="panelOpenState">
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <button style="margin-left: 90%;" class="mb-2" (click)="openDialog()" mat-raised-button color="primary">Add</button>
+      <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Poster</th>
+                <th scope="col">Description</th>
+                <th scope="col">Likes</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of movies">
+                <th scope="row">{{item.movieName}}</th>
+                <th scope="row"><img id="movieImg" src="../../../assets/images/{{item.moviePoster}}" alt=""></th>
+                <th scope="row">{{item.movieDescription}}</th>
+                <th scope="row">{{item.likes}}</th>
+                <th>
+                  <div class="row">
+                    <div class="col-6"><mat-icon mat-raised-button color="primary" type="button" (click)="openEditDialog(item)" >create</mat-icon></div>
+                    <div class="col-6"><mat-icon mat-raised-button color="warn" type="button" (click)='deleteMovie(item.movieId)'>delete</mat-icon></div>
+                  </div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+
+<!-- TvShow Slider -->
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header >
+        <mat-panel-title>
+          <h1 style="margin-top: 1%;">Tv Shows</h1>
+        </mat-panel-title>
+        <mat-panel-description *ngIf="panelOpenState">
+           
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <button style="margin-left: 90%;" class="mb-2" (click)="openTvShowDialog()" mat-raised-button color="primary">Add</button>
+      <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Poster</th>
+                <th scope="col">Description</th>
+                <th scope="col">Likes</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tvShows">
+                <th scope="row">{{item.tvShowName}}</th>
+                <th scope="row"><img id="movieImg" src="../../../assets/images/{{item.tvShowPoster}}" alt=""></th>
+                <th scope="row">{{item.tvShowDescription}}</th>
+                <th scope="row">{{item.likes}}</th>
+                <th>
+                  <div class="row">
+                    <div class="col-6"><mat-icon mat-raised-button color="primary" type="button" (click)="openTvShowEditDialog(item)" >create</mat-icon></div>
+                    <div class="col-6"><mat-icon mat-raised-button color="warn" type="button" (click)='deleteTvShow(item.tvShowId)'>delete</mat-icon></div>
+                  </div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+
+<!-- Songs Slider -->
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header >
+        <mat-panel-title>
+          <h1 style="margin-top: 1%;">Songs</h1>
+        </mat-panel-title>
+        <mat-panel-description *ngIf="panelOpenState">
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <button style="margin-left: 90%;" class="mb-2" (click)="openSongDialog()" mat-raised-button color="primary">Add</button>
+      <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Poster</th>
+                <th scope="col">Lyrics</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Generation</th>
+                <th scope="col">Likes</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of songs">
+                <th scope="row">{{item.songName}}</th>
+                <th scope="row"><img id="movieImg" src="../../../assets/images/{{item.songPoster}}" alt=""></th>
+                <th scope="row">{{item.songLyrics}}</th>
+                <th scope="row">{{item.songType}}</th>
+                <th scope="row">{{item.songDescription}}</th>
+                <th scope="row">{{item.songGeneration}}</th>
+                <th scope="row">{{item.likes}}</th>
+                <th>
+                  <div class="row">
+                    <div class="col-6"><mat-icon mat-raised-button color="primary" type="button" (click)="openSongEditDialog(item)" >create</mat-icon></div>
+                    <div class="col-6"><mat-icon mat-raised-button color="warn" type="button" (click)='deleteSong(item.songId)'>delete</mat-icon></div>
+                  </div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<br><br><br><br><br>

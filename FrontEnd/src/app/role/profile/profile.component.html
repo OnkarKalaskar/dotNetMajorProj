@@ -1,0 +1,63 @@
+<div class="container" style="margin-top: 2%;">
+
+    <div class="row" id="subDiv" style="background-color: #212121;">
+        <div class="col-4">
+            <div class="card mb-4 mb-xl-0" style="background-color: #212121;">
+                <div class="card-header text-white">Profile Picture</div>
+                <div class="card-body text-center">
+                    <img id="profilePicture" class="img-account-profile rounded-circle mb-3"
+                        src="../../../assets/ProfilePics/{{profilePicUrl}}" alt=""><br>
+                    <input class="col-md-6 mb-3" type="file" id="profilePic" [(ngModel)]="profilePic">
+                    <div class="small font-italic text-muted mb-3 ">JPG or PNG no larger than 5 MB</div>
+                    <button class="btn btn-primary" (click)="updateProfilePic()">Update Profile Pic</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="card mb-4" style="background-color: #212121;">
+                <div class="card-header text-white">Account Details</div>
+                <div class="card-body">
+                    <form [formGroup]="myform" (ngSubmit)="updateUser()">
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label class="small mb-1 text-white">Name</label>
+                                <input class="form-control text-dark" type="text" formControlName="Name">
+                                <div *ngIf="myform.get('Name')?.errors && isSubmitted">
+                                    <div *ngIf="myform.get('Name')?.hasError('pattern')">
+                                        <span style="color: red;">Only characters allowed</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <label class="small mb-1 text-white">Mobile No.</label>
+                                <input class="form-control text-dark" type="text" formControlName="MobileNo">
+                                <div *ngIf="myform.get('MobileNo')?.errors && isSubmitted">
+                                    <div *ngIf="myform.get('MobileNo')?.hasError">
+                                        <span style="color: red;">Number can be of 10 digits only</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <label class="small mb-1 text-white">Alternate Mobile Mo.</label>
+                                <input class="form-control text-dark" type="text" formControlName="AlternateMobileNo">
+                                <div *ngIf="myform.get('AlternateMobileNo')?.errors && isSubmitted">
+                                    <div *ngIf="myform.get('AlternateMobileNo')?.hasError">
+                                        <span style="color: red;">Number can be of 10 digits only</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: center; margin-top: 110px;">
+                            <button class="btn btn-primary" type="submit">Save changes</button>
+                        </div>
+                        
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

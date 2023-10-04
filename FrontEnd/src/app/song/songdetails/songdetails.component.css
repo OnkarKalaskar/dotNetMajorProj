@@ -1,0 +1,109 @@
+
+
+/* song details section */
+#songDetailsCard{
+  background-color: #212121;
+  margin: 4% 4% 4%;
+}
+
+.card-body{
+  color: white;
+}
+
+.songDetailsLabel{
+  font-size: large;
+    font-weight: bold;
+}
+
+.songOperations{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4%;
+}
+
+.likesDiv{
+  background-color: #212121;
+  display: flex;
+}
+
+mat-icon{
+  width: 24px;
+  height: 30px;
+}
+
+.favButton{
+  background-color: red;
+  width: 24px;
+  height: 30px;
+}
+
+
+
+
+/* song details section */
+.songCards{
+    height: 500px;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: auto;
+    gap: 10px;
+    white-space: nowrap;
+  }
+  
+  #player{
+    /* pointer-events: none; */
+    height: 500px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    /* height: auto; */
+  }
+
+  #songImgTag{
+    height: 250px;
+  }
+  
+  
+  audio{
+    width: 100%;
+  }
+  
+  .icons{
+    display: flex;
+    justify-content: flex-start;
+    gap: 7%;
+  }
+
+  /* song card style start */
+.container{
+  height: 300px;
+  margin: 4% 4% 10%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2%;
+}
+
+.cardHead :hover{
+  transform: scale(1.15);
+  transition: all(0.3s);
+}
+
+.card{
+  max-width: 200px;
+  max-height: 300px;
+}
+
+.card-img-top{
+  max-height: 300px;
+  max-width: 200px;
+}
+
+.mainBody{
+  background-color: black;
+}
+
+/* song card style end */

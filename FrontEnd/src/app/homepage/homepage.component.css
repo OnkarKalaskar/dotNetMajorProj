@@ -1,0 +1,14 @@
+.carousel-item>img{
+    max-height: 500px;
+}
+
+#movieSectionTitle{
+    margin-left: 2%;
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.mainBody{
+    background-color: black;
+}

@@ -1,0 +1,65 @@
+<div *ngIf="AllSearchedMovie.length != 0">
+    <p id="movieSectionTitle">Movie</p>
+    <div class="container">
+        <div class="cardHead" *ngFor="let movie of AllSearchedMovie | paginate : {itemsPerPage : 6, currentPage : currentPageNumber}">
+            <ng-container>
+                <a style="text-decoration: none;" >
+                    <div class="card" style="background-color: black;" (click)="routeToMovie(movie.movieId)">
+                        <img class="card-img-top" src="../../../assets/images/{{movie?.moviePoster}}"
+                            style=" transform: none;" alt="">
+                        <div id="movieName" style=" transform: none;">
+                            <h3 class="card-title text-white">{{movie?.movieName}}</h3>
+                        </div>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+        <pagination-controls (pageChange)="currentPageNumber = $event" class="float-right"></pagination-controls>
+    </div>    
+</div>
+
+<div *ngIf="AllSearchedTvShow.length != 0">
+    <p id="movieSectionTitle">Tv Show</p>
+    <div class="container">
+        <div class="cardHead" *ngFor="let tvshow of AllSearchedTvShow | paginate : {itemsPerPage : 6, currentPage : currentPageNumber}">
+            <ng-container>
+                <a style="text-decoration: none;">
+                    <div class="card" style="background-color: black;" (click)="routeToTvShow(tvshow.tvShowId)">
+                        <img class="card-img-top" src="../../../assets/images/{{tvshow?.tvShowPoster}}"
+                            style=" transform: none;" alt="">
+                        <div id="movieName" style=" transform: none;">
+                            <h3 class="card-title text-white">{{tvshow?.tvShowName}}</h3>
+                        </div>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+        <pagination-controls (pageChange)="currentPageNumber = $event" class="float-right"></pagination-controls>
+    </div>
+</div>
+
+<div *ngIf="AllSearchedSong.length != 0">
+    <p id="movieSectionTitle">Song</p>
+    <div class="container">
+        <div class="cardHead" *ngFor="let song of AllSearchedSong | paginate : {itemsPerPage : 6, currentPage : currentPageNumber}">
+            <ng-container>
+                <a style="text-decoration: none;">
+                    <div class="card" style="background-color: black;" (click)="routeToSong(song.songId)">
+                        <img class="card-img-top" src="../../../assets/images/{{song?.songPoster}}"
+                            style=" transform: none;" alt="">
+                        <div id="movieName" style=" transform: none;">
+                            <h3 class="card-title text-white">{{song?.songName}}</h3>
+                        </div>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+        <pagination-controls (pageChange)="currentPageNumber = $event" class="float-right"></pagination-controls>
+    </div>
+</div>
+
+<div *ngIf="AllSearchedSong.length == 0 && AllSearchedTvShow.length == 0 && AllSearchedMovie.length == 0">
+    <div class="container" style="justify-content: center;">
+        <img src="../../../assets/images/nodatafound.png" alt="">
+    </div>
+</div>

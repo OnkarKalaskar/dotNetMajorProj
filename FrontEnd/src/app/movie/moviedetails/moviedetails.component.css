@@ -1,0 +1,85 @@
+#movieDetailsCard{
+    background-color: #212121;
+    margin: 4% 4% 4%;
+}
+
+.card-body{
+    color: white;
+}
+
+.movieDetailsLabel{
+
+    font-size: large;
+    font-weight: bold;
+}
+
+.movieOperations{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4%;
+}
+.likesDiv{
+    background-color: #212121;
+    display: flex;
+}
+
+mat-icon{
+    width: 24px;
+    height: 30px;
+}
+
+.favButton{
+    background-color: red;
+    width: 24px;
+    height: 30px;
+}
+
+/* movie card style start */
+.container{
+    height: 300px;
+    margin: 4% 4% 10%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2%;
+}
+
+#movieSectionTitle{
+    margin-left: 4%;
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.cardHead :hover{
+    transform: scale(1.15);
+    transition: all(0.3s);
+}
+
+.card{
+    max-width: 200px;
+    max-height: 300px;
+}
+
+.card-img-top{
+    max-height: 300px;
+    max-width: 200px;
+}
+
+.card-title :hover{
+    transform: none;
+}
+
+/* movie card style end */
+
+.videoPlayer{
+    margin-top: 5%;
+}
+
+.movieOperations{
+    display: flex;
+}
+
+.mainBody{
+    background-color: black;
+}
+

@@ -1,0 +1,116 @@
+<div class="container-fluid">
+    <div class="loginImage">
+        <img src="../../../assets/one.jpg" alt="">
+    </div>
+    <div class="row g-3 needs-validation mx-auto" id="myform">
+        <h3 class="text-center">Create Your Account </h3>
+        <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" name="Name" class="form-control" formControlName="Name" placeholder="name">
+                <div *ngIf="myform.get('Name')?.errors && isSubmitted">
+                    <div *ngIf="myform.get('Name')?.hasError">
+                        <span style="color: red;">Please enter name</span>
+                    </div>
+                    <div *ngIf="myform.get('Name')?.hasError('pattern')">
+                        <span style="color: red;">Only characters allowed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="Email" class="form-control" formControlName="Email" placeholder="email">
+                <div *ngIf="myform.get('Email')?.errors && isSubmitted">
+                    <div *ngIf="myform.get('Email')?.hasError">
+                        <span style="color: red;">Please enter email</span>
+                    </div>
+                    <div *ngIf="myform.get('Email')?.hasError('pattern')">
+                        <span style="color: red;">Only characters allowed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="Password" class="form-control" formControlName="Password"
+                    placeholder="password">
+                <div *ngIf="myform.get('Password')?.errors && isSubmitted">
+                    <div *ngIf="myform.get('Password')?.hasError">
+                        <span style="color: red;">Please enter Password</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Mobile No.</label>
+                <input type="text" name="MobileNo" class="form-control" formControlName="MobileNo"
+                    placeholder="Mobile No">
+                <div *ngIf="myform.get('MobileNo')?.errors && isSubmitted">
+                    <div *ngIf="myform.get('MobileNo')?.hasError">
+                        <span style="color: red;">Number can be of 10 digits only</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Alternate Mobile No.</label>
+                <input type="text" name="AlternateMobileNo" class="form-control" formControlName="AlternateMobileNo"
+                    placeholder="Alternate mobile no">
+                <div *ngIf="myform.get('AlternateMobileNo')?.errors && isSubmitted">
+                    <div *ngIf="myform.get('AlternateMobileNo')?.hasError">
+                        <span style="color: red;">Number can be of 10 digits only</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Role</label>
+                <select name="Role" formControlName="Role" class="form-control">
+                    <option value="">Select</option>
+                    <option value="User">User </option>
+                    <option value="Client">Client</option>
+                </select>
+                <div *ngIf="myform.get('Role')?.errors && isSubmitted">
+                    <div *ngIf="myform.get('Role')?.hasError">
+                        <span style="color: red;">Please select role</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Plan</label>
+                <select name="SubstricptionId" formControlName="SubstricptionId" class="form-control">
+                    <option value="">Select</option>
+                    <option *ngIf="myform.get('Role')?.value!='Client'" value="1">Free Trial </option>
+                    <option *ngIf="myform.get('Role')?.value!='Client'" value="2">Standard</option>
+                    <option *ngIf="myform.get('Role')?.value!='Client'" value="3">Premium</option>
+                    <option *ngIf="myform.get('Role')?.value=='Client'" value="4">Client</option>
+                </select>
+                <div *ngIf="myform.get('SubstricptionId')?.errors && isSubmitted">
+                    <div *ngIf="myform.get('SubstricptionId')?.hasError">
+                        <span style="color: red;">Please select plan</span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="myform.get('Role')?.value!='Client'">
+                <p *ngIf="myform.get('SubstricptionId')?.value=='1'">
+                    Eligible for free trial upto 30 days
+                </p>
+                <p *ngIf="myform.get('SubstricptionId')?.value=='2'">
+                    Charges for Standard plan {{250|currency:'INR'}}
+                </p>
+                <p *ngIf="myform.get('SubstricptionId')?.value=='3'">
+                    Charges for Premium plan {{450|currency:'INR'}}
+                </p>
+            </div>
+            <div *ngIf="myform.get('Role')?.value=='Client'">
+                <p *ngIf="myform.get('SubstricptionId')?.value=='4'">
+                    Eligible for free trial upto 90 days
+                </p>
+            </div>
+
+            <button type="submit" class="btn btn-dark mt-4">Register</button>
+        </form>
+    </div>
+
+</div>

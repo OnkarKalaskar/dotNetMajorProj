@@ -1,0 +1,78 @@
+<div style="background-color: black;"> 
+    <div *ngIf="AllFavMovie.length != 0">
+        <p id="movieSectionTitle">Movie</p>
+        <div class="container">
+            <div class="cardHead" *ngFor="let movie of AllFavMovie  | paginate : {itemsPerPage : 6, currentPage : currentPageNumber}">
+                <ng-container>
+                    <a style="text-decoration: none;" >
+                        <div class="card" style="background-color: black;" (click)="routeToMovie(movie.movieId)">
+                            <img class="card-img-top" src="../../../assets/images/{{movie?.moviePoster}}"
+                                style=" transform: none;" alt="">
+                            <div id="movieName" style=" transform: none;">
+                                <h3 class="card-title text-white">{{movie?.movieName}}</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <mat-button-toggle value="italic" style="background-color: #212121;" (click)="removeFavMovie(movie.movieId)">
+                        <mat-icon style="background-color: #212121;" color="primary">favorite</mat-icon>
+                      </mat-button-toggle>
+                </ng-container>
+            </div>
+            <pagination-controls (pageChange)="currentPageNumber = $event" class="float-right"></pagination-controls>
+        </div>
+    </div>
+    
+    <div *ngIf="AllFavTvShow.length != 0">
+        <p id="movieSectionTitle">Tv Show</p>
+        <div class="container">
+            <div class="cardHead" *ngFor="let tvshow of AllFavTvShow | paginate : {itemsPerPage : 6, currentPage : currentPageNumber}">
+                <ng-container>
+                    <a style="text-decoration: none;">
+                        <div class="card" style="background-color: black;" (click)="routeToTvShow(tvshow.tvShowId)">
+                            <img class="card-img-top" src="../../../assets/images/{{tvshow?.tvShowPoster}}"
+                                style=" transform: none;" alt="">
+                            <div id="movieName" style=" transform: none;">
+                                <h3 class="card-title text-white">{{tvshow?.tvShowName}}</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <mat-button-toggle value="italic" style="background-color: #212121;" (click)="removeFavTvShow(tvshow.tvShowId)">
+                        <mat-icon style="background-color: #212121;" color="primary">favorite</mat-icon>
+                      </mat-button-toggle>
+                </ng-container>
+            </div>
+            <pagination-controls (pageChange)="currentPageNumber = $event" class="float-right"></pagination-controls>
+        </div>
+    </div>
+    
+    <div *ngIf="AllFavSong.length != 0"> 
+        <p id="movieSectionTitle">Song</p>
+        <div class="container">
+            <div class="cardHead" *ngFor="let song of AllFavSong | paginate : {itemsPerPage : 6, currentPage : currentPageNumber}">
+                <ng-container>
+                    <a style="text-decoration: none;">
+                        <div class="card" style="background-color: black;" (click)="routeToSong(song.songId)">
+                            <img class="card-img-top" src="../../../assets/images/{{song?.songPoster}}" style=" transform: none;">
+                                <div id="movieName" style=" transform: none;">
+                                    <h3 class="card-title text-white" >{{song?.songName}}</h3>
+                                </div>  
+                        </div>              
+                    </a>
+                    <mat-button-toggle value="italic" style="background-color: #212121;" (click)="removeFavSong(song.songId)">
+                        <mat-icon style="background-color: #212121;" color="primary">favorite</mat-icon>
+                      </mat-button-toggle>
+                </ng-container>            
+            </div>   
+            <pagination-controls (pageChange)="currentPageNumber = $event" class="float-right"></pagination-controls>    
+        </div> 
+    </div>
+    
+    <div *ngIf="AllFavMovie.length == 0 && AllFavTvShow.length == 0 && AllFavSong.length == 0">
+        <div class="container" style="justify-content: center;">
+            <img src="../../../assets/images/nodatafound.png" alt="">
+        </div>
+    </div>
+</div>
+
+
+<!-- (click)="checkUserLogin(movie.movieId)" -->

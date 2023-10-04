@@ -1,0 +1,54 @@
+<form >
+    <h1 mat-dialog-title>{{inputdata.title}}</h1>
+    
+    <div mat-dialog-content>    
+            
+            <label class="form-label">Song Name</label>
+            <input class="form-control" name="songName" type="text"  [(ngModel)]="songForm.songName"  />  
+        
+            <label class="form-label">Song</label>
+            <input class="form-control" name="songPath" type="file"  [(ngModel)]="tempSongAudio" />
+        
+            <label class="form-label">Song Poster</label>
+            <input class="form-control" name="songPoster" type="file"  [(ngModel)]="tempSongPoster" />
+        
+            <label class="form-label">Song Description</label>
+            <textarea class="form-control" rows="4" cols="50" name="songDescription" type="text"  [(ngModel)]="songForm.songDescription"></textarea>
+            
+            <label class="form-label">Song Lyrics</label>
+            <textarea class="form-control" rows="4" cols="50" name="songLyrics" type="text"  [(ngModel)]="songForm.songLyrics"></textarea>
+
+            <mat-form-field>
+                <mat-label>Song Type</mat-label>
+                <mat-select [(ngModel)]="selectedSongType" name="selectedSongType">
+                  <mat-option *ngFor="let type of songTypes" [value]="type.typeName" >
+                    {{type.typeName}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Song Generation</mat-label>
+                <mat-select [(ngModel)]="selectedSongGeneration" name="selectedSongGeneration">
+                  <mat-option *ngFor="let gen of songGenerations" [value]="gen.genName" >
+                    {{gen.genName}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Category</mat-label>
+                <mat-select [(ngModel)]="selectedCategoryId" name="selectedCategoryId">
+                  <mat-option *ngFor="let cat of categories" [value]="cat.categoryId" >
+                    {{cat.categoryName}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+    </div>
+    
+    <div mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close color="acent">Cancel</button>
+        <button type="submit" mat-raised-button color="primary" (click)="editSong()" >Add</button>
+    </div>
+    
+</form>

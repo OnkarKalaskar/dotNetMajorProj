@@ -1,0 +1,49 @@
+.container{
+    max-width: 95%;
+    /* height: 400px; */
+    margin-top: 4%;
+    margin-left: 3%;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    /* overscroll-behavior-inline: contain; */
+}
+
+
+pagination-controls{
+    margin-top: 30px;
+}
+
+.cardHead{
+    max-width: 200px;
+    max-height: 300px;
+}
+
+.card{
+    width: 200px;
+    height: 270px;
+}
+
+#movieSectionTitle{
+    margin-left: 3%; 
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+
+.cardHead :hover{
+    transform: scale(1.10);
+    transition: all(0.8s);
+}
+
+
+
+.card-img-top{
+    max-height: 250px;
+    max-width: 190px;
+}
+
+.card> .card-title :hover{
+    transform: none;
+}

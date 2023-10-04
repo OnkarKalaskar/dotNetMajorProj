@@ -1,0 +1,13 @@
+<div class="container media-scroll-group" style="background-color: black;">
+    <div class="cardHead" *ngFor="let song of songsOfCategory  | paginate : {itemsPerPage : 6, currentPage : currentPageNumber}"  >
+            <a style="text-decoration: none;">
+                <div class="card" style="background-color: black;" (click)="checkUserLogin(song.songId)">
+                    <img class="card-img-top" alt="" src="../../../assets/images/{{song?.songPoster}}" style=" transform: none;">
+                        <div id="movieName" style=" transform: none;">
+                            <h3 class="card-title text-white" >{{song?.songName}}</h3>
+                        </div>  
+                </div>              
+            </a>           
+   </div>  
+    <pagination-controls (pageChange)="currentPageNumber = $event" class="float-right"></pagination-controls>         
+</div> 

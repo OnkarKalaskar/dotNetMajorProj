@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+    background-color: grey;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  .list{
+    margin-top: 3%;
+    max-width: 90%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+  }
+  .button{
+    display: grid;
+  }
+
+  .actionButtons{
+    display: flex;
+  }
+

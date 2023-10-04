@@ -1,0 +1,47 @@
+<!-- play audio -->
+
+<div id="player" class="playSong">
+<div class="card col-3" >
+    <img src="../../../assets/images/{{currentSong?.songPoster}}" class="card-img-top" id="songImgTag" alt="...">
+    <div class="card-body">
+    <h5 class="card-title" id="movieName">{{currentSong?.songName}}</h5>
+    <audio src="../../../assets/songs/{{currentSong?.songPath}}" type="audio/mp3" controls autoplay controlsList="nodownload"></audio>
+    </div>
+   </div>
+</div>
+
+<!-- song details card -->
+<div class="card mb-3" id="songDetailsCard" style="max-width: 90%; margin: auto; max-height: 300px;">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <img src="../../../assets/images/{{currentSong?.songPoster}}" class="card-img" alt="..." style="margin: 2% 2% 2%; max-height: 260px; max-width: 175px;">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <label class="songDetailsLabel">Song Name:</label><h2 class="card-title">{{currentSong?.songName}}</h2>
+          <label class="songDetailsLabel">Song Description:</label><p class="card-text">{{currentSong?.songDescription}}</p>
+          
+          <div class="songOperations">
+            <div class="likesDiv" style="background-color: #212121;">
+              <p>
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style" style="background-color: #212121;">
+                  <mat-button-toggle value="bold" (click)="increaseLike()" style="background-color: #212121;"><mat-icon color="primary">thumb_up</mat-icon></mat-button-toggle>
+                  <mat-button-toggle value="italic" (click)="decreaseLike()" style="background-color: #212121;"><mat-icon color="primary">thumb_down</mat-icon></mat-button-toggle>
+                </mat-button-toggle-group>
+              </p>
+              <div class="mt-3">
+                <p class="card-text">{{currentSong?.likes}}</p>
+              </div>
+            </div>
+            <div class="addToFavDiv">
+              <mat-button-toggle value="italic" style="background-color: #212121;" (click)="addSongToUserFavorites(currentSong?.songId)">
+                <mat-icon style="background-color: #212121;" color="primary">favorite</mat-icon>
+              </mat-button-toggle>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

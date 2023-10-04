@@ -1,0 +1,35 @@
+/* navbar css */
+.navbar-nav button{
+  color: white;
+}
+
+/* navbar css end*/
+.right-spacer {
+    flex: 1 1 auto;
+  }
+
+  .middle-spacer{
+    flex: 1 1 auto;
+  }
+
+  html,body{
+    height: 100%;
+    background-color: black;
+}
+
+
+  .logo{
+    width: auto;
+    height: 60px;
+    
+  }
+
+  mat-icon{
+    width: 24px;
+    height: 30px;
+}
+
+li button{
+  width: 24x;
+  height: 30px;
+}
